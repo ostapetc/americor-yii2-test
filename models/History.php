@@ -2,7 +2,7 @@
 
 namespace app\models;
 
-use app\models\traits\ObjectNameTrait;
+use app\models\traits\GetRelationMethod;
 use Yii;
 use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
@@ -31,7 +31,7 @@ use yii\db\ActiveRecord;
  */
 class History extends ActiveRecord
 {
-    use ObjectNameTrait;
+    use GetRelationMethod;
 
     const EVENT_CREATED_TASK = 'created_task';
     const EVENT_UPDATED_TASK = 'updated_task';

@@ -14,23 +14,6 @@ use yii\data\ActiveDataProvider;
 class HistorySearch extends History
 {
     /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function scenarios()
-    {
-        // bypass scenarios() implementation in the parent class
-        return Model::scenarios();
-    }
-
-    /**
      * Creates data provider instance with search query applied
      *
      * @param array $params
@@ -42,25 +25,18 @@ class HistorySearch extends History
         $query = History::find();
 
         // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
+            //TODO: best way is to use cursor for pagination, limit\offset can degradate on big number pages
+            'pagination' => [
+                'pageSize' => 10,
+            ],
             'query' => $query,
-        ]);
-
-        $dataProvider->setSort([
-            'defaultOrder' => [
-                'ins_ts' => SORT_DESC,
-                'id' => SORT_DESC
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC
+                ],
             ],
         ]);
-
-        $this->load($params);
-
-        if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            $query->where('0=1');
-            return $dataProvider;
-        }
 
         $query->addSelect('history.*');
         $query->with([
