@@ -8,6 +8,7 @@ use yii\db\Migration;
 class m191111_090949_init extends Migration
 {
     /**
+     * TODO: Every table must have separated migration file
      * {@inheritdoc}
      */
     public function safeUp()
@@ -72,11 +73,11 @@ class m191111_090949_init extends Migration
         $this->createTable('{{%fax}}', [
             'id' => $this->primaryKey(),
             'ins_ts' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
-            'user_id' => $this->integer(),
-            'from' => $this->string(),
-            'to' => $this->string(),
+            'user_id' => $this->integer(), //TODO: not null?
+            'from' => $this->string(), //TODO: not null?
+            'to' => $this->string(), //TODO: not null?
             'direction' => $this->smallInteger()->notNull()->defaultValue(0),
-            'type' => $this->string(),
+            'type' => $this->string(), //TODO: not null?
         ], $tableOptions);
 
         $this->addForeignKey('fk_fax__user_id', 'fax', 'user_id', 'user', 'id', 'RESTRICT', 'CASCADE');

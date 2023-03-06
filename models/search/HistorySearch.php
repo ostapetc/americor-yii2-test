@@ -14,23 +14,6 @@ use yii\data\ActiveDataProvider;
 class HistorySearch extends History
 {
     /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function scenarios()
-    {
-        // bypass scenarios() implementation in the parent class
-        return Model::scenarios();
-    }
-
-    /**
      * Creates data provider instance with search query applied
      *
      * @param array $params
@@ -48,11 +31,10 @@ class HistorySearch extends History
                 'pageSize' => 10,
             ],
             'query' => $query,
-        ]);
-
-        $dataProvider->setSort([
-            'defaultOrder' => [
-                'id' => SORT_DESC
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC
+                ],
             ],
         ]);
 

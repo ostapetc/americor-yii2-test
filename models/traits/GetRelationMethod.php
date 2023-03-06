@@ -2,15 +2,12 @@
 
 namespace app\models\traits;
 
-use app\models\Call;
-use app\models\Customer;
-use app\models\Fax;
-use app\models\Sms;
-use app\models\Task;
-use app\models\User;
+use yii\db\ActiveQuery;
 
 trait GetRelationMethod
 {
+    use ClassNameMethods;
+
     /**
      * @param $name
      * @param bool $throwException
@@ -27,4 +24,6 @@ trait GetRelationMethod
 
         return parent::getRelation($name, $throwException);
     }
+
+    abstract protected function hasOne($class, array $params): ActiveQuery;
 }
