@@ -25,8 +25,8 @@ class HistorySearch extends History
         $query = History::find();
 
         // add conditions that should always apply here
-
         $dataProvider = new ActiveDataProvider([
+            //TODO: best way is to use cursor for pagination, limit\offset can degradate on big number pages
             'pagination' => [
                 'pageSize' => 10,
             ],
@@ -37,14 +37,6 @@ class HistorySearch extends History
                 ],
             ],
         ]);
-
-        $this->load($params);
-
-        if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            $query->where('0=1');
-            return $dataProvider;
-        }
 
         $query->addSelect('history.*');
         $query->with([

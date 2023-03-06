@@ -25,5 +25,5 @@ trait GetRelationMethod
         return parent::getRelation($name, $throwException);
     }
 
-    abstract protected function hasOne($class, array $params): ActiveQuery;
+    abstract protected function hasOne($class, $params);
 }

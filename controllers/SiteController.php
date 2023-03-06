@@ -38,10 +38,14 @@ class SiteController extends Controller
      */
     public function actionExport($exportType)
     {
+        ini_set('max_execution_time', 0);
+        ini_set('memory_limit', '2048M');
+
         $model = new HistorySearch();
+        $dataProvider = $model->search(Yii::$app->request->queryParams);
 
         return $this->render('export', [
-            'dataProvider' => $model->search(Yii::$app->request->queryParams),
+            'dataProvider' => $dataProvider,
             'exportType' => $exportType,
             'model' => $model
         ]);
