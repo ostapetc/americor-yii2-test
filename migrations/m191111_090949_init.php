@@ -22,6 +22,9 @@ class m191111_090949_init extends Migration
             'username' => $this->string()->notNull()->unique(),
             'email' => $this->string()->null(),
             'status' => $this->smallInteger()->notNull()->defaultValue(10),
+            //TOOD
+            //Must be like $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
+            //created_at column should be named ins_ts according similarity
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);

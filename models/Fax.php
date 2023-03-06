@@ -46,6 +46,7 @@ class Fax extends ActiveRecord
             [['type'], 'required'],
             [['ins_ts'], 'safe'],
             [['user_id'], 'integer'],
+            //TODO: validate not equal and not empty
             [['from', 'to'], 'string'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];

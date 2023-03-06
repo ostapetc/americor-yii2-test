@@ -1,3 +1,4 @@
+-- TODO use multi insert in each insert file
 INSERT INTO `call` (id, ins_ts, direction, user_id, customer_id, status, phone_from, phone_to, comment) VALUES (93756, '2017-10-18 22:00:32', 0, null, 7550, 0, '+5906282656083', '+9563967002838', null);
 INSERT INTO `call` (id, ins_ts, direction, user_id, customer_id, status, phone_from, phone_to, comment) VALUES (118625, '2017-10-25 22:02:07', 0, null, 7550, 0, '+4985228107899', '+9563967002838', null);
 INSERT INTO `call` (id, ins_ts, direction, user_id, customer_id, status, phone_from, phone_to, comment) VALUES (163282, '2017-11-03 23:04:58', 0, null, 7550, 0, '+3713219297753', '+9563967002838', null);

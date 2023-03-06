@@ -44,12 +44,14 @@ class HistorySearch extends History
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
+            'pagination' => [
+                'pageSize' => 10,
+            ],
             'query' => $query,
         ]);
 
         $dataProvider->setSort([
             'defaultOrder' => [
-                'ins_ts' => SORT_DESC,
                 'id' => SORT_DESC
             ],
         ]);
